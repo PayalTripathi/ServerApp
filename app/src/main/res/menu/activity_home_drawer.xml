@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
 
 
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="Home" />
+        <item
+            android:id="@+id/nav_products"
             android:icon="@drawable/ic_restaurant_menu_black_24dp"
-            android:title="Categories" />
+            android:title="Products" />
+        <item
+            android:id="@+id/nav_service"
+            android:icon="@drawable/ic_room_service_black_24dp"
+            android:title="Customer Service" />
         <item
             android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_exit_to_app_black_24dp"
