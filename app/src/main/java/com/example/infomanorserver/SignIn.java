@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.infomanorserver.Common.Common;
+import com.example.infomanorserver.Model.User;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -18,8 +20,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
-import Common.Common;
-import Model.User;
+//import Common.Common;
+//import Model.User;
 
 public class SignIn extends AppCompatActivity {
 
@@ -64,6 +66,7 @@ public class SignIn extends AppCompatActivity {
                     mDialog.dismiss();
 
                     User user=dataSnapshot.child(localPhone).getValue(User.class);
+                    assert user != null;
                     user.setPhone(localPhone);
                     if(Boolean.parseBoolean(user.getIsStaff())) {
                         if(user.getPassword().equals(localPassword)){
@@ -71,7 +74,6 @@ public class SignIn extends AppCompatActivity {
                             Toast.makeText(SignIn.this,"Login Sucessfull!",Toast.LENGTH_SHORT).show();
                             Intent login= new Intent(SignIn.this,Home.class);
                             Common.currentUser=user;
-
                             startActivity(login);
                             finish();
                         }
